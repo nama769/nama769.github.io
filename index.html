@@ -189,7 +189,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-24 21:43:34" itemprop="dateModified" datetime="2021-04-24T21:43:34+08:00">2021-04-24</time>
+                <time title="修改时间：2021-04-25 12:36:30" itemprop="dateModified" datetime="2021-04-25T12:36:30+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +240,10 @@
 <p>为核心应用程序提供api,包含<code>控制器(controllers)</code>,<code>中间件(middleware)</code>,<code>请求(requests)</code>和基本全部请求的处理逻辑</p>
 </blockquote>
 </li>
-<li><p>Providers</p>
+<li><p>Providers 文件夹</p>
+<blockquote>
+<p>包含所有对于应用程序的<code>服务提供者(service providers)</code>。服务提供者通过在服务容器中绑定服务、注册事件或执行任何其他任务来引导应用程序，以便为传入的请求准备应用程序。</p>
+</blockquote>
 </li>
 <li><p>Exceptions 文件夹</p>
 <blockquote>
@@ -288,6 +291,31 @@
 </blockquote>
 <blockquote>
 <p>包含所有<code>表示应用程序发送emails的类</code>。Mail对象允许将构造email的所有逻辑封装在<strong>一个</strong>简单的类中，以使用<code>Mail::send</code>来发送。</p>
+</blockquote>
+</li>
+<li><p>Notifications (通知)文件夹</p>
+<blockquote>
+<p>make:notification 后被创建</p>
+</blockquote>
+<blockquote>
+<p>包含应用程序发送的所有事务性通知，例如有关应用程序中发生的事件的简单通知。Laravel的通知功能是通过各种驱动程序发送通知，例如电子邮件，Sack，SMS或存储在数据库中的通知。</p>
+</blockquote>
+</li>
+<li><p>Policies (策略)文件夹</p>
+<blockquote>
+<p>make:policy 后被创建</p>
+</blockquote>
+<blockquote>
+<p>包含应用程序的授权策略类(authorization policy classes)。策略用于确定用户是否可以对资源执行给定的操作。</p>
+</blockquote>
+</li>
+<li><p>Rules 文件夹</p>
+<blockquote>
+<p>make:rule 后被创建</p>
+</blockquote>
+<blockquote>
+<p>包含应用程序的自定义验证规则对象。规则用于将复杂的验证逻辑封装在一个简单的对象中。</p>
+<p>相关：<code>验证文件(validation documentation)</code></p>
 </blockquote>
 </li>
 <li><p>xxx 文件夹 </p>
