@@ -189,7 +189,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-15 00:16:16" itemprop="dateModified" datetime="2021-07-15T00:16:16+08:00">2021-07-15</time>
+                <time title="修改时间：2021-07-15 00:21:52" itemprop="dateModified" datetime="2021-07-15T00:21:52+08:00">2021-07-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +224,9 @@
 <p>然后我决定先不使用服务器，还是用虚拟机来做，这样操作起来简单一些，并且可以从一个真正纯白的系统开始。我选择了ubantu20.04.2.0,在<a target="_blank" rel="noopener" href="https://mirror.lzu.edu.cn/ubuntu-releases/20.04.2.0/ubuntu-20.04.2.0-desktop-amd64.iso">官网</a>下载了镜像之后，熟练的创建虚拟机。随便找个教程安装了<a target="_blank" rel="noopener" href="https://blog.csdn.net/cukw6666/article/details/107985157">apache2</a>和<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/147220492">php</a>和<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137339787">mysql</a>。</p>
 <p>便可以把这道题目环境搭起来了。在我没有进行任何有关安全的配置后，果然就打通了🙃。</p>
 <p>在虚拟机上搭服务器唯一的缺点可能就是无法在互联网上访问吧。充其量就是在内网里可以访问，但我觉得这对于学习还是很有帮助的。</p>
-<h2 id="0x02-解题思路"><a href="#0x02-解题思路" class="headerlink" title="0x02 解题思路"></a>0x02 解题思路</h2><p>这道题的核心是<code>/[A-Za-z0-9_$@]+/</code>。有一些其他类似的题目只是匹配了大小写字母和数字，那种题的解法多是通过异或符号，即两个字符做异或运算在php里可以得到另外一个字符，最后构造出payload。详细的过程在文章开头的参考链接和参考wp里已经写的很清楚了，因为时间原因（指军训晚上组织看电影看到晚上11点半😥）我就不赘述了。</p>
+<h2 id="0x02-解题思路"><a href="#0x02-解题思路" class="headerlink" title="0x02 解题思路"></a>0x02 解题思路</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">//题目源码</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]))&#123;</span><br><span class="line">	highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$code</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];</span><br><span class="line">	<span class="keyword">if</span>(preg_match(<span class="string">&quot;/[A-Za-z0-9_$@]+/&quot;</span>,<span class="variable">$code</span>))&#123; </span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&#x27;fighting!&#x27;</span>); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">eval</span>(<span class="variable">$code</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这道题的核心是<code>/[A-Za-z0-9_$@]+/</code>。有一些其他类似的题目只是匹配了大小写字母和数字，那种题的解法多是通过异或符号，即两个字符做异或运算在php里可以得到另外一个字符，最后构造出payload。详细的过程在文章开头的参考链接和参考wp里已经写的很清楚了，因为时间原因（指军训晚上组织看电影看到晚上11点半😥）我就不赘述了。</p>
 <p>但上面的方法最后的payload 一定会有$_字符。在本题中均进行了过滤。通过wp，学习到，本题是用linux系统下的通配符进行的绕过。例如：在命令行执行 <code>/bin/cat /flag</code> 便可以得到flag，但多数情况下也可以这样写 <code>/???/??? /????</code>。但在我的系统里/???/???匹配到的并不是cat，在ctfhub上的环境上确实可以匹配到cat。虽然这样，但还是令我大受震撼。</p>
 <h2 id="0x03-小结"><a href="#0x03-小结" class="headerlink" title="0x03 小结"></a>0x03 小结</h2><p>更详细的就不说了，这两天发现自己搭环境确实挺难的。以后做题可能也都会尝试自己本地尽量搭建。不多说了，睡觉觉了😴。</p>
 
