@@ -20,30 +20,40 @@
     var CONFIG = {"hostname":"nama769.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="a v c">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhblog">
-<meta property="og:url" content="https://nama769.github.io/index.html">
+  <meta name="description" content="强网杯2021-whereisuwebshell再战 参考WP https:&#x2F;&#x2F;www.anquanke.com&#x2F;post&#x2F;id&#x2F;244824 在比赛群里翻到的Nu1L战队的wp  参考链接 php LFI  0x00 前言上次复现到最后一步时没有成功，这两天换了环境，又试了试，终于可以了。 0x01 书接上回上次卡在无法触发在php7下运行php:&#x2F;&#x2F;filter&#x2F;string.strip_ta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强网杯2021-whereisuwebshell再战">
+<meta property="og:url" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/index.html">
 <meta property="og:site_name" content="zhblog">
-<meta property="og:description" content="a v c">
+<meta property="og:description" content="强网杯2021-whereisuwebshell再战 参考WP https:&#x2F;&#x2F;www.anquanke.com&#x2F;post&#x2F;id&#x2F;244824 在比赛群里翻到的Nu1L战队的wp  参考链接 php LFI  0x00 前言上次复现到最后一步时没有成功，这两天换了环境，又试了试，终于可以了。 0x01 书接上回上次卡在无法触发在php7下运行php:&#x2F;&#x2F;filter&#x2F;string.strip_ta">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/index.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/huixian.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/ls.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/fault.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/list.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/res.png">
+<meta property="article:published_time" content="2021-07-16T13:58:03.000Z">
+<meta property="article:modified_time" content="2021-07-16T13:07:26.332Z">
 <meta property="article:author" content="zhanghao">
+<meta property="article:tag" content="qwb2021">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/index.png">
 
-<link rel="canonical" href="https://nama769.github.io/">
+<link rel="canonical" href="https://nama769.github.io/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>zhblog</title>
+  <title>强网杯2021-whereisuwebshell再战 | zhblog</title>
   
 
 
@@ -152,9 +162,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -170,10 +181,9 @@
       <meta itemprop="name" content="zhblog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/" class="post-title-link" itemprop="url">强网杯2021-whereisuwebshell再战</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          强网杯2021-whereisuwebshell再战
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -210,7 +220,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="强网杯2021-whereisuwebshell再战"><a href="#强网杯2021-whereisuwebshell再战" class="headerlink" title="强网杯2021-whereisuwebshell再战"></a>强网杯2021-whereisuwebshell再战</h1><blockquote>
+        <h1 id="强网杯2021-whereisuwebshell再战"><a href="#强网杯2021-whereisuwebshell再战" class="headerlink" title="强网杯2021-whereisuwebshell再战"></a>强网杯2021-whereisuwebshell再战</h1><blockquote>
 <p><strong>参考WP</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/244824">https://www.anquanke.com/post/id/244824</a></p>
 <a href="/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/Nu1L.pdf" title="在比赛群里翻到的Nu1L战队的wp">在比赛群里翻到的Nu1L战队的wp</a>
@@ -244,25 +254,34 @@
 <h2 id="0x02-小结"><a href="#0x02-小结" class="headerlink" title="0x02 小结"></a>0x02 小结</h2><p>终于成功的将这道题复现。总结一下第一次为什么没打通，首先是没看apache2日志，导致自己不清楚是否造成了段错误；其次是对php7的那个bug理解不到位，具体bug是当造成段错误时，同时<strong>以post方式上传的文件</strong>会保存在/tmp目录，只是文件会被保存，以post传递的参数是不会保存的。最后就是第一次的环境是在远程服务器上，操作起来不是很方便，并且操作系统是阿里云提供的，具体软件是用宝塔一键安装的，导致出现问题时我无从下手。这次用虚拟机100%自己安软件，搭环境，感觉就不一样了。</p>
 <p>但即使这样，我回头又试了一下在服务器上搭的环境，还是没打通。。。哎，真的不知道阿里云和宝塔背地里干了什么😰。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/qwb2021/" rel="tag"># qwb2021</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/13/%E9%80%9A%E9%85%8D%E7%AC%A6%E7%BB%95%E8%BF%87/" rel="prev" title="通配符绕过">
+      <i class="fa fa-chevron-left"></i> 通配符绕过
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -314,6 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">强网杯2021-whereisuwebshell再战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E4%B9%A6%E6%8E%A5%E4%B8%8A%E5%9B%9E"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 书接上回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-%E5%B0%8F%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 小结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
