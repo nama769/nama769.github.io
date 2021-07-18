@@ -20,19 +20,30 @@
     var CONFIG = {"hostname":"nama769.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="php LFI 及伪协议">
+  <meta name="description" content="强网杯2021-hardxss战前准备 参考WP 2021强网杯HarderXSS出题心得和非官方WP 2021-强网杯Web-HarderXSS-复现-WP 题目链接 出题人的github  0x00 前言想把强网杯的那几道web全都复现。这次尝试一下hardxss。但有点困难。首先我连xss都不太会。所以只能是照着wp一步步来了。 题目环境是直接在buu上起的。 0x01  xxe和xss前的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php learn">
-<meta property="og:url" content="https://nama769.github.io/2021/07/02/php_learn/index.html">
+<meta property="og:title" content="强网杯2021-hardxss战前准备">
+<meta property="og:url" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/index.html">
 <meta property="og:site_name" content="zhblog">
-<meta property="og:description" content="php LFI 及伪协议">
+<meta property="og:description" content="强网杯2021-hardxss战前准备 参考WP 2021强网杯HarderXSS出题心得和非官方WP 2021-强网杯Web-HarderXSS-复现-WP 题目链接 出题人的github  0x00 前言想把强网杯的那几道web全都复现。这次尝试一下hardxss。但有点困难。首先我连xss都不太会。所以只能是照着wp一步步来了。 题目环境是直接在buu上起的。 0x01  xxe和xss前的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-02T14:42:36.000Z">
-<meta property="article:modified_time" content="2021-07-11T13:55:11.623Z">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/timu.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/sql.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies2.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/login.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/xss.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/dtd.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/alvps.png">
+<meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/txvps.png">
+<meta property="article:published_time" content="2021-07-18T13:58:03.000Z">
+<meta property="article:modified_time" content="2021-07-18T13:43:38.797Z">
 <meta property="article:author" content="zhanghao">
+<meta property="article:tag" content="qwb2021">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/timu.png">
 
-<link rel="canonical" href="https://nama769.github.io/2021/07/02/php_learn/">
+<link rel="canonical" href="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/">
 
 
 <script id="page-configurations">
@@ -45,7 +56,7 @@
   };
 </script>
 
-  <title>php learn | zhblog</title>
+  <title>强网杯2021-hardxss战前准备 | zhblog</title>
   
 
 
@@ -161,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/07/02/php_learn/">
+    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          php learn
+          强网杯2021-hardxss战前准备
         </h1>
 
         <div class="post-meta">
@@ -183,23 +194,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-07-02 22:42:36" itemprop="dateCreated datePublished" datetime="2021-07-02T22:42:36+08:00">2021-07-02</time>
+              <time title="创建时间：2021-07-18 21:58:03 / 修改时间：21:43:38" itemprop="dateCreated datePublished" datetime="2021-07-18T21:58:03+08:00">2021-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-11 21:55:11" itemprop="dateModified" datetime="2021-07-11T21:55:11+08:00">2021-07-11</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
                 </span>
             </span>
 
@@ -214,7 +223,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://www.0x002.com/2020/PHP%20%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB(LFI)%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">php LFI 及伪协议</a></p>
+        <h1 id="强网杯2021-hardxss战前准备"><a href="#强网杯2021-hardxss战前准备" class="headerlink" title="强网杯2021-hardxss战前准备"></a>强网杯2021-hardxss战前准备</h1><blockquote>
+<p><strong>参考WP</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.icystal.top/ctf15-qwb2021harderxss/">2021强网杯HarderXSS出题心得和非官方WP</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.funnything.net/2021/06/15/2021-qwb-web-harderxss-writeup/">2021-强网杯Web-HarderXSS-复现-WP</a></p>
+<p><strong>题目链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/crystalrays/qwb2021-harderxss">出题人的github</a></p>
+</blockquote>
+<h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>想把强网杯的那几道web全都复现。这次尝试一下hardxss。但有点困难。首先我连xss都不太会。所以只能是照着wp一步步来了。</p>
+<p>题目环境是直接在buu上起的。</p>
+<h2 id="0x01-xxe和xss前的步骤"><a href="#0x01-xxe和xss前的步骤" class="headerlink" title="0x01  xxe和xss前的步骤"></a>0x01  xxe和xss前的步骤</h2><img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/timu.png" class="">
+
+<p>第一步是在登录处的sql注入，简单fuzz一下大概过滤了</p>
+<p><code>ELSEIF EXPLAIN FROM GROUP IF INSERT JOIN LIMIT MODIFIES REGEXP SPECIFIC STRAIGHT_JOINTABLE UNION UPDATE WHERE</code></p>
+<p>不会注了，但万能密码可以直接登录<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/sql.png" class="">，但有没有完全登上。赛时的hint说注意domain，可以看到<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies.png" class="">中登录后set-cookies了，但f12发现本机并没有cookies。仔细看发现domain不匹配。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies2.png" class="">这里可以手动设置一下。然后就可以登录了<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/login.png" class=""></p>
+<p>之后便是通过<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/xss.png" class="">进行攻击了。</p>
+<h2 id="0x02-没什么用的分段"><a href="#0x02-没什么用的分段" class="headerlink" title="0x02 没什么用的分段"></a>0x02 没什么用的分段</h2><p>为此我找了许多教程，<a target="_blank" rel="noopener" href="https://www.runoob.com/">简单学习了xml，dtd，dom······</a>。然后照着wp，打算先把upload.php源码获取到。但发现需要vps做外联dtd。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/dtd.png" class="">并且要求ssl认证才行（这里我也不知道为啥非要https,反正如果我把脚本中的https换成http,就无法上传成功😭）。然而我的国内阿里云vps一直没有部署ssl，所以又花了小一天的时间搞这个。搞得差不多的时候才发现用域名去访问vps需要备案。。。可是我不想备案。所以就在阿里云下单了一个海外vps，然后如图<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/alvps.png" class="">。呵呵。真好用。问了一下群友们，群友们劝我放弃阿里云，告诉我腾讯的比较稳定，所以我又下单了一个腾讯的海外vps。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/txvps.png" class=""></p>
+<p>然后开始搭建站点，部署ssl。过程还是比较曲折。加上今天离校（横跨半个北京去找高中同学），今天就到这里了。明天一定把https搞起来。</p>
+<h2 id="0x03小结"><a href="#0x03小结" class="headerlink" title="0x03小结"></a>0x03小结</h2><p>原本想复现hardxss的，结果整了一堆有的没的。。</p>
+<p>另外<strong>千万别用阿里云海外vps</strong></p>
 
     </div>
 
@@ -223,6 +250,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/qwb2021/" rel="tag"># qwb2021</a>
+          </div>
 
         
 
@@ -230,13 +260,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/02/php%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" rel="prev" title="php本地动态调试">
-      <i class="fa fa-chevron-left"></i> php本地动态调试
+    <a href="/2021/07/16/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-whereisuwebshell%E5%86%8D%E6%88%98/" rel="prev" title="强网杯2021-whereisuwebshell再战">
+      <i class="fa fa-chevron-left"></i> 强网杯2021-whereisuwebshell再战
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/07/04/CVE-2019-9081/" rel="next" title="CVE-2019-9081">
-      CVE-2019-9081 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -295,6 +322,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">强网杯2021-hardxss战前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-xxe%E5%92%8Cxss%E5%89%8D%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">0x01  xxe和xss前的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-%E6%B2%A1%E4%BB%80%E4%B9%88%E7%94%A8%E7%9A%84%E5%88%86%E6%AE%B5"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 没什么用的分段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03%E5%B0%8F%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text">0x03小结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
