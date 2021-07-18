@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/alvps.png">
 <meta property="og:image" content="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/txvps.png">
 <meta property="article:published_time" content="2021-07-18T13:58:03.000Z">
-<meta property="article:modified_time" content="2021-07-18T13:43:38.797Z">
+<meta property="article:modified_time" content="2021-07-18T13:46:21.373Z">
 <meta property="article:author" content="zhanghao">
 <meta property="article:tag" content="qwb2021">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-07-18 21:58:03 / 修改时间：21:43:38" itemprop="dateCreated datePublished" datetime="2021-07-18T21:58:03+08:00">2021-07-18</time>
+              <time title="创建时间：2021-07-18 21:58:03 / 修改时间：21:46:21" itemprop="dateCreated datePublished" datetime="2021-07-18T21:58:03+08:00">2021-07-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +236,7 @@
 
 <p>第一步是在登录处的sql注入，简单fuzz一下大概过滤了</p>
 <p><code>ELSEIF EXPLAIN FROM GROUP IF INSERT JOIN LIMIT MODIFIES REGEXP SPECIFIC STRAIGHT_JOINTABLE UNION UPDATE WHERE</code></p>
-<p>不会注了，但万能密码可以直接登录<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/sql.png" class="">，但有没有完全登上。赛时的hint说注意domain，可以看到<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies.png" class="">中登录后set-cookies了，但f12发现本机并没有cookies。仔细看发现domain不匹配。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies2.png" class="">这里可以手动设置一下。然后就可以登录了<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/login.png" class=""></p>
+<p>不会注了，但万能密码可以直接登录<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/sql.png" class="">，但还没有完全登上。赛时的hint说注意domain，可以看到<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies.png" class="">中登录后set-cookies了，但f12发现本机并没有cookies。仔细看发现domain不匹配。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies2.png" class="">这里可以手动设置一下。然后就可以登录了<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/login.png" class=""></p>
 <p>之后便是通过<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/xss.png" class="">进行攻击了。</p>
 <h2 id="0x02-没什么用的分段"><a href="#0x02-没什么用的分段" class="headerlink" title="0x02 没什么用的分段"></a>0x02 没什么用的分段</h2><p>为此我找了许多教程，<a target="_blank" rel="noopener" href="https://www.runoob.com/">简单学习了xml，dtd，dom······</a>。然后照着wp，打算先把upload.php源码获取到。但发现需要vps做外联dtd。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/dtd.png" class="">并且要求ssl认证才行（这里我也不知道为啥非要https,反正如果我把脚本中的https换成http,就无法上传成功😭）。然而我的国内阿里云vps一直没有部署ssl，所以又花了小一天的时间搞这个。搞得差不多的时候才发现用域名去访问vps需要备案。。。可是我不想备案。所以就在阿里云下单了一个海外vps，然后如图<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/alvps.png" class="">。呵呵。真好用。问了一下群友们，群友们劝我放弃阿里云，告诉我腾讯的比较稳定，所以我又下单了一个腾讯的海外vps。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/txvps.png" class=""></p>
 <p>然后开始搭建站点，部署ssl。过程还是比较曲折。加上今天离校（横跨半个北京去找高中同学），今天就到这里了。明天一定把https搞起来。</p>
