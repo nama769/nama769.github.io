@@ -1,0 +1,84 @@
+site_name: 老男孩
+repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: nama769/mkdocs-material
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+
+theme:
+  name: material
+  language: zh
+  font:
+    text: Noto Serif SC
+    # text: Ma Shan Zheng
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - toc.integrate
+    - navigation.top
+    - header.autohide
+    - search.suggest
+    - search.highlight
+  palette:
+    # - primary: blue grey
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+
+plugins:
+  - glightbox
+  - search
+
+
+nav:
+  - 首页: 
+    - index.md
+  - Web:
+    - web/index.md
+    - 渗透:
+      - web/shentou/index.md
+      - 春秋云境:
+        - web/shentou/yunjing/Initial.md
+        - web/shentou/yunjing/Tsclient.md
+      - Windows域:
+        - web/shentou/windows/basic.md
+        - web/shentou/windows/dcsync.md
+    - nodejs:
+      - web/nodejs/proto2rce.md
+  - CTF:
+    - ctf/index.md
+    - 2023:
+      - ctf/2023/wmctf.md
+    - 2022:
+      - ctf/2022/index.md
